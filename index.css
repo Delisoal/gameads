@@ -1,0 +1,126 @@
+:root{
+  --accent:#70bfe8;
+  --text:ivory;
+  --background:black;
+  --width:60vw;
+  --margin:2em;
+  --error:lime;
+  background:var(--background);
+  color:var(--text);
+  font-size:16px;
+}
+body{
+  margin:0;
+  opacity:0;
+  transition:opacity 0.5s;
+  text-align:center;
+  line-height:1.8;
+}
+body.loaded{
+  opacity:1;
+}
+header{
+  border-bottom:1px solid var(--accent);
+  margin-bottom:3em;
+  padding:1em 0;
+}
+.main{
+  display:inline-block;
+  width:var(--width);
+}
+.box{
+  width:100%;
+  border:solid 1px var(--accent);
+  margin-bottom:var(--margin);
+  box-sizing:border-box;
+  padding:1em;
+}
+.box h1{
+  font-size:1.1em;
+  color:var(--accent);
+  font-weight:normal;
+}
+.box h1::before,header .mark::before{
+  content:"▶";
+  display:inline-block;
+}
+.box h1::before{
+  width:2em;
+}
+header .title{
+  display:block;
+  font-size:2.5em;
+  margin-top:0.5em;
+  font-weight:bold;
+}
+header .cap{
+  display:block;
+  color:var(--accent);
+}
+header .links{
+  display:inline-block;
+  width:var(--width);
+  text-align:start;
+}
+header .mark{
+  color:var(--accent);
+  margin-right:1em;
+}
+pre{
+  white-space:pre-wrap;
+}
+p{
+  margin:0;
+}
+a{
+  color:color-mix(in srgb,blue,var(--accent));
+  opacity:1;
+  transition:opacity 2s;
+}
+a:hover{
+  opacity:0.8;
+}
+span.vir{
+  color:inherit;
+  transition:color 0.2s;
+}
+span.vir:not(.stop),span.before{
+  color:var(--error);
+  opacity:0.8;
+}
+.loadbox{
+  position:fixed;
+  right:2em;
+  top:3em;
+  padding:1em 2em;
+  border:solid 1px var(--accent);
+  background:var(--background);
+  box-shadow:0 0 5px 0 var(--accent);
+  z-index:1;
+  opacity:1;
+  transition:opacity 0.2s,z-index 0s 0.2s;
+}
+.loadbox.close{
+  z-index:-1;
+  opacity:0;
+}
+.letter{
+  display:none;
+  --display:none;
+  text-decoration:underline;
+}
+.vir .letter::after{
+  content:"|";
+  color:inherit;
+  display:var(--display);
+}
+@media screen and (max-width:850px), screen and (orientation: portrait){
+  .main{
+    width:80vw;
+  }
+}
+@media screen and (min-width:650px) and (orientation: portrait){
+  body{
+    font-size:1.5em;
+  }
+}
