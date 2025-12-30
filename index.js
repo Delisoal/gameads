@@ -38,7 +38,7 @@
           }
           if(span.classList.contains("stop")){
             clearInterval(intervalNum);
-            span.innerHTML=span.getAttribute("origin").split("").map(function(str,i){let space=str.match(/\s|\n/g);let fullWidth=str.match(/^[^ -~｡-ﾟ]/);return `<span class="letter">${str}</span><span class="before" style="display:inline-block;width:${fullWidth?"1em":"0.5em"};">${space?"":span.textContent.split("")[i]}</span>`}).join("");
+            span.innerHTML=span.getAttribute("origin").split("").map(function(str,i){let space=str.match(/\s|\n|\t/g);let fullWidth=str.match(/^[^ -~｡-ﾟ]/);return `<span class="letter">${str}</span><span class="before" style="display:inline-block;width:${fullWidth?"1em":"0.5em"};">${space?"":span.textContent.split("")[i]}</span>`}).join("");
             span.querySelectorAll(".before").forEach(function(before){
               setInterval(function(){
                 before.innerHTML=arraydt[Math.round(Math.random()*(arraydt.length-1))];
@@ -65,7 +65,7 @@
           else{
             span.innerHTML="";
             for(let i=0;i<span.getAttribute("origin").length;i++){
-              let space=span.getAttribute("origin").split("")[i].match(/\s|\n/g);
+              let space=span.getAttribute("origin").split("")[i].match(/\s|\n|\t/g);
               let fullWidth=span.getAttribute("origin").split("")[i].match(/^[^ -~｡-ﾟ]/);
               span.innerHTML+=`<span style="display:inline-block;width:${fullWidth?"1em":"0.5em"};">${(space?space[0]:null)||arraydt[Math.round(Math.random()*(arraydt.length-1))]}</span>`;
             }
